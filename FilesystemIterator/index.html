@@ -1,0 +1,37 @@
+## Dokumentation: PHP FilesystemIterator Webbsida
+
+### Introduktion
+Denna webbsida använder PHP:s `FilesystemIterator`-klass för att lista filer i den aktuella katalogen. Den filtrerar
+endast `.php` och `.html`-filer och visar deras namn, storlek och senaste ändringsdatum i en tabell.
+
+### Strukturen på koden
+1. **Sidhuvud och HTML-struktur**
+- Sätter HTTP-header för att ange UTF-8.
+- Använder `echo <<<HTML ... HTML;` för att generera HTML-koden. - Inkluderar en `<table>` för att visa
+    filinformationen.
+
+    2. **Filhantering med `FilesystemIterator`**
+    - Skapar en `FilesystemIterator` för att bläddra genom katalogen.
+    - Loopar igenom varje fil och hämtar filnamn, storlek och senaste ändringsdatum.
+    - Filtrerar bort filer som inte är `.php` eller `.html`.
+
+    3. **Utskrift av resultat**
+    - Varje fil skrivs ut som en rad i HTML-tabellen.
+    - Hoppar över icke-matchande filer och räknar dem.
+    - Visar antal överhoppade filer längst ned.
+
+    ### Design och stil
+    - Webbsidan har grundläggande stilförbättringar med CSS för att göra tabellen mer läsbar.
+    - CSS används för att ge tabellen ränder, bakgrundsfärger och anpassade typsnitt.
+    - Filerna listas i en klickbar tabell för enklare navigering.
+
+    ### Användning
+    Koden bör köras på en webbserver som stödjer PHP, t.ex. via:
+    ```sh
+    php -S localhost:8000
+    ```
+    Därefter kan sidan öppnas i en webbläsare genom att besöka `http://localhost:8000`.
+
+    ### Slutsats
+    Genom att använda `FilesystemIterator` och PHP:s inbyggda funktioner skapas en dynamisk filvisare som automatiskt
+    uppdateras med katalogens innehåll. Designen har förbättrats med CSS för en bättre användarupplevelse.
